@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: myweb
+    environment:
+      # Use the username and password found in the db-init.js file instead
+      # of the root username.
+      MONGODB_URI: mongodb://user:secretPassword@database/mydb
+    # depends_on:
+    #   - database
+    ports:
+      - 80:80
